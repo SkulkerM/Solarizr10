@@ -1,0 +1,106 @@
+﻿<Page
+    x:Class="Solarizr10.Views.DashboardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Behaviors="using:Template10.Behaviors"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:controls="using:Template10.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:Solarizr10.Views"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="using:Solarizr10.ViewModels" mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Key="tsTitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+        <Style x:Key="tsBigTitle" TargetType="TextBlock" BasedOn="{StaticResource tsTitle}">
+            <Setter Property="FontSize" Value="36"/>
+        </Style>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <controls:PageHeader Text="Main Page" BackButtonVisibility="Collapsed" Frame="{x:Bind Frame, Mode=OneWay}" Grid.Row="0"/>
+        <Grid Background="White" Grid.Row="1" Margin="0,46,0,-46">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="500"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Padding="10,10,10,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="5,5,5,15" Grid.Row="0" Background="White">
+                    <TextBlock Text="Monday, July 7" Style="{StaticResource tsTitle}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="You have" Style="{StaticResource tsTitle}" VerticalAlignment="Center"/>
+                        <TextBlock Text="2" Style="{StaticResource tsBigTitle}" VerticalAlignment="Center" Padding="5,0,5,0"/>
+                        <TextBlock Text="appointments remaining today" Style="{StaticResource tsTitle}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Your next appointment is in" Style="{StaticResource tsTitle}" VerticalAlignment="Center"/>
+                        <TextBlock Text="23" Style="{StaticResource tsBigTitle}" VerticalAlignment="Center" Padding="5,0,5,0"/>
+                        <TextBlock Text="minutes in" Style="{StaticResource tsTitle}" VerticalAlignment="Center"/>
+                        <TextBlock Text="Englewood, CO" Style="{StaticResource tsBigTitle}" VerticalAlignment="Center" Padding="5,0,5,0"/>
+                    </StackPanel>
+                </StackPanel>
+                <Border Grid.Row="1" BorderBrush="Blue" BorderThickness="2"/>
+                <TextBlock Text="Map" Foreground="Black" FontSize="58" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
+                <Border  Grid.Row="2" BorderBrush="Red" BorderThickness="2" Height="200" Margin="0,5,0,0"/>
+                <TextBlock Text="Weather" Foreground="Black" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="58"/>
+            </Grid>
+            <Grid Grid.Column="1" x:Name="Column1" Background="LightBlue" Padding="10,10,10,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Upcoming" VerticalAlignment="Center" Style="{StaticResource tsTitle}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="10:30" VerticalAlignment="Top" Foreground="Black" FontSize="58"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="in 23 minutes" Foreground="Black" FontStyle="Italic" FontSize="24"/>
+                </Grid>
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="status" Style="{StaticResource tsTitle}"/>
+                    <ListBox>
+                        <ListBoxItem Content="pending"/>
+                        <ListBoxItem Content="overdue"/>
+                    </ListBox>
+                </StackPanel>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="comments" Margin="0,25,0,0" Style="{StaticResource tsTitle}"/>
+                    <TextBox Grid.Row="1" TextWrapping="Wrap" Background="White" Foreground="Black" VerticalAlignment="Stretch"/>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="photos" Style="{StaticResource tsTitle}"/>
+                    <Border Grid.Row="1" BorderBrush="Blue" BorderThickness="2" VerticalAlignment="Stretch"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>

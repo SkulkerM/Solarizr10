@@ -42,7 +42,7 @@ namespace Solarizr10
     // runs only when not restored from state
     public override Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
     {
-      NavigationService.Navigate(typeof(Views.MainPage));
+      NavigationService.Navigate(typeof(Views.DashboardPage));
       return Task.CompletedTask;
     }
   }
