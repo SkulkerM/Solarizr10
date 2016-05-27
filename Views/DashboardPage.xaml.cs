@@ -26,5 +26,10 @@ namespace Solarizr10.Views
     {
       this.InitializeComponent();
     }
+
+    private void PageHeader_Opened(object sender, object e)
+    {
+
+    }
   }
 }

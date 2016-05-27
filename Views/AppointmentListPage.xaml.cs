@@ -20,11 +20,15 @@ namespace Solarizr10.Views
   /// <summary>
   /// An empty page that can be used on its own or navigated to within a Frame.
   /// </summary>
-  public sealed partial class AppointmentListPaqe : Page
+  public sealed partial class AppointmentListPage : Page
   {
-    public AppointmentListPaqe()
+    public AppointmentListPage()
     {
       this.InitializeComponent();
+    }
+    private void PageHeader_Opened(object sender, object e)
+    {
+
     }
   }
 }

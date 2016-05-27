@@ -25,11 +25,29 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <controls:PageHeader Text="Main Page" BackButtonVisibility="Collapsed" Frame="{x:Bind Frame, Mode=OneWay}" Grid.Row="0"/>
-        <Grid Background="White" Grid.Row="1" Margin="0,46,0,-46">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1000"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Column1.Visibility" Value="Collapsed"/>
+                        <Setter Target="ColumnD1.Width" Value="Auto"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <controls:PageHeader Text="Main Page" BackButtonVisibility="Collapsed" Frame="{x:Bind Frame, Mode=OneWay}" Grid.Row="0" Opened="PageHeader_Opened"/>
+        <Grid Background="White" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="500"/>
+                <ColumnDefinition x:Name="ColumnD1" Width="500"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Padding="10,10,10,10">
                 <Grid.RowDefinitions>
@@ -37,20 +55,13 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <StackPanel Margin="5,5,5,15" Grid.Row="0" Background="White">
-                    <TextBlock Text="Monday, July 7" Style="{StaticResource tsTitle}"/>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="You have" Style="{StaticResource tsTitle}" VerticalAlignment="Center"/>
-                        <TextBlock Text="2" Style="{StaticResource tsBigTitle}" VerticalAlignment="Center" Padding="5,0,5,0"/>
-                        <TextBlock Text="appointments remaining today" Style="{StaticResource tsTitle}" VerticalAlignment="Center"/>
+                <ScrollViewer Grid.Row="0">
+                    <StackPanel Margin="5,5,5,15" Background="White">
+                        <TextBlock Text="Monday, July 7" Style="{StaticResource tsTitle}"/>
+                        <TextBlock Text="You have 2 appointments remaining today" Style="{StaticResource tsTitle}" TextWrapping="WrapWholeWords"/>
+                        <TextBlock Text="Your next appointment is in 23 minutes in Englewood, CO" Style="{StaticResource tsTitle}" TextWrapping="WrapWholeWords"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Your next appointment is in" Style="{StaticResource tsTitle}" VerticalAlignment="Center"/>
-                        <TextBlock Text="23" Style="{StaticResource tsBigTitle}" VerticalAlignment="Center" Padding="5,0,5,0"/>
-                        <TextBlock Text="minutes in" Style="{StaticResource tsTitle}" VerticalAlignment="Center"/>
-                        <TextBlock Text="Englewood, CO" Style="{StaticResource tsBigTitle}" VerticalAlignment="Center" Padding="5,0,5,0"/>
-                    </StackPanel>
-                </StackPanel>
+                </ScrollViewer>
                 <Border Grid.Row="1" BorderBrush="Blue" BorderThickness="2"/>
                 <TextBlock Text="Map" Foreground="Black" FontSize="58" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
                 <Border  Grid.Row="2" BorderBrush="Red" BorderThickness="2" Height="200" Margin="0,5,0,0"/>
@@ -58,10 +69,10 @@
             </Grid>
             <Grid Grid.Column="1" x:Name="Column1" Background="LightBlue" Padding="10,10,10,10">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
@@ -78,10 +89,10 @@
                 </Grid>
                 <StackPanel Grid.Row="1">
                     <TextBlock Text="status" Style="{StaticResource tsTitle}"/>
-                    <ListBox>
-                        <ListBoxItem Content="pending"/>
-                        <ListBoxItem Content="overdue"/>
-                    </ListBox>
+                    <ComboBox SelectedIndex="0" HorizontalAlignment="Stretch" Foreground="Black" Background="White">
+                        <ComboBoxItem Content="pending"/>
+                        <ComboBoxItem Content="overdue"/>
+                    </ComboBox>
                 </StackPanel>
                 <Grid Grid.Row="2">
                     <Grid.RowDefinitions>

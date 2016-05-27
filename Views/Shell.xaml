@@ -14,16 +14,24 @@
     <Controls:ModalDialog x:Name="ModalContainer" CanBackButtonDismiss="False"
                           DisableBackButtonWhenModal="True">
         <Controls:ModalDialog.Content>
-            <Controls:HamburgerMenu IsOpen="False" x:Name="MyHamburgerMenu">
+            <Controls:HamburgerMenu VisualStateNarrowMinWidth="0" VisualStateNormalMinWidth="1" VisualStateWideMinWidth="2000" x:Name="MyHamburgerMenu">
 
                 <Controls:HamburgerMenu.PrimaryButtons>
                     <!--  mainpage button  -->
-                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:MainPage">
+                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:DashboardPage">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="Home" />
                             <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Home" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
+                    <!--  listpage button  -->
+                    <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:AppointmentListPage">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="48" Height="48" Symbol="List"/>
+                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Home" />
+                        </StackPanel>
+                    </Controls:HamburgerButtonInfo>
+
                 </Controls:HamburgerMenu.PrimaryButtons>
 
                 <Controls:HamburgerMenu.SecondaryButtons>

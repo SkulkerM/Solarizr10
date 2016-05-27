@@ -106,8 +106,8 @@
     <Compile Include="Views\ApointmentPage.xaml.cs">
       <DependentUpon>ApointmentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AppointmentListPaqe.xaml.cs">
-      <DependentUpon>AppointmentListPaqe.xaml</DependentUpon>
+    <Compile Include="Views\AppointmentListPage.xaml.cs">
+      <DependentUpon>AppointmentListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Busy.xaml.cs">
       <DependentUpon>Busy.xaml</DependentUpon>
@@ -172,7 +172,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AppointmentListPaqe.xaml">
+    <Page Include="Views\AppointmentListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
