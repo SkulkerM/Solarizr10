@@ -49,24 +49,26 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition x:Name="ColumnD1" Width="500"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Padding="10,10,10,10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <ScrollViewer Grid.Row="0">
-                    <StackPanel Margin="5,5,5,15" Background="White">
-                        <TextBlock Text="Monday, July 7" Style="{StaticResource tsTitle}"/>
-                        <TextBlock Text="You have 2 appointments remaining today" Style="{StaticResource tsTitle}" TextWrapping="WrapWholeWords"/>
-                        <TextBlock Text="Your next appointment is in 23 minutes in Englewood, CO" Style="{StaticResource tsTitle}" TextWrapping="WrapWholeWords"/>
-                    </StackPanel>
-                </ScrollViewer>
-                <Border Grid.Row="1" BorderBrush="Blue" BorderThickness="2"/>
-                <TextBlock Text="Map" Foreground="Black" FontSize="58" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
-                <Border  Grid.Row="2" BorderBrush="Red" BorderThickness="2" Height="200" Margin="0,5,0,0"/>
-                <TextBlock Text="Weather" Foreground="Black" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="58"/>
-            </Grid>
+            <ScrollViewer Grid.Column="0">
+                <Grid Padding="10,10,10,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ScrollViewer Grid.Row="0">
+                        <StackPanel Margin="5,5,5,15" Background="White">
+                            <TextBlock Text="Monday, July 7" Style="{StaticResource tsTitle}"/>
+                            <TextBlock Text="You have 2 appointments remaining today" Style="{StaticResource tsTitle}" TextWrapping="WrapWholeWords"/>
+                            <TextBlock Text="Your next appointment is in 23 minutes in Englewood, CO" Style="{StaticResource tsTitle}" TextWrapping="WrapWholeWords"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                    <Border Grid.Row="1" BorderBrush="Blue" BorderThickness="2"/>
+                    <TextBlock Text="Map" Foreground="Black" FontSize="58" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
+                    <Border  Grid.Row="2" BorderBrush="Red" BorderThickness="2" Height="200" Margin="0,5,0,0"/>
+                    <TextBlock Text="Weather" Foreground="Black" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="58"/>
+                </Grid>
+            </ScrollViewer>
             <Grid Grid.Column="1" x:Name="Column1" Background="LightBlue" Padding="10,10,10,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -90,8 +92,10 @@
                 <StackPanel Grid.Row="1">
                     <TextBlock Text="status" Style="{StaticResource tsTitle}"/>
                     <ComboBox SelectedIndex="0" HorizontalAlignment="Stretch" Foreground="Black" Background="White">
-                        <ComboBoxItem Content="pending"/>
-                        <ComboBoxItem Content="overdue"/>
+                        <ComboBoxItem Content="Pending"/>
+                        <ComboBoxItem Content="Approved"/>
+                        <ComboBoxItem Content="Denied"/>
+                        <ComboBoxItem Content="Skipped"/>
                     </ComboBox>
                 </StackPanel>
                 <Grid Grid.Row="2">

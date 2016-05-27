@@ -46,7 +46,9 @@
             <Grid Grid.Row="1" Margin="10,10,10,10">
                 <ComboBox Foreground="Black" Background="White" SelectedIndex="0">
                     <ComboBoxItem Content="Pending"/>
-                    <ComboBoxItem Content="Overdue"/>
+                    <ComboBoxItem Content="Approved"/>
+                    <ComboBoxItem Content="Denied"/>
+                    <ComboBoxItem Content="Skipped"/>
                 </ComboBox>
                 <Border Width="150" Height="25" BorderBrush="Red" BorderThickness="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
             </Grid>
